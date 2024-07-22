@@ -1,0 +1,10 @@
+{
+  "name": "nodejs-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts"
+    },
+    "ghcr.io/joedmck/devcontainer-features/wrangler:1": {}
+  }
+}
