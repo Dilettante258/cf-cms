@@ -28,8 +28,8 @@ pages_build_output_dir = ".vercel/output/static"
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
 # [[d1_databases]]
 # binding = "MY_DB"
-# database_name = "my-database"
-# database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# database_name = "cf_cms_d1"
+# database_id = "ea324159-bfc9-4cf4-8c86-6697fe665832"
 
 # Bind a Durable Object. Durable objects are a scale-to-zero compute primitive based on the actor model.
 # Durable Objects can live for as long as needed. Use these when you need a long-running "server", such as in realtime apps.
@@ -43,8 +43,8 @@ pages_build_output_dir = ".vercel/output/static"
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#kv-namespaces
 # KV Example:
 # [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# binding = "CF_CMS_KV"
+# id = "dc4ed5798cf14609809fd2839d19d15c"
 
 # Bind a Queue producer. Use this binding to schedule an arbitrary task that may be processed later by a Queue consumer.
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#queue-producers
@@ -73,15 +73,29 @@ pages_build_output_dir = ".vercel/output/static"
 # [env.preview.vars]
 # API_KEY = "xyz789"
 
-# [[env.preview.kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "<PREVIEW_NAMESPACE_ID>"
+[[env.preview.kv_namespaces]]
+binding = "CF_CMS_KV"
+id = "dc4ed5798cf14609809fd2839d19d15c"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "cf_cms_d1"
+database_id = "ea324159-bfc9-4cf4-8c86-6697fe665832"
 
 ######## PRODUCTION environment config ########
 
 # [env.production.vars]
 # API_KEY = "abc123"
 
-# [[env.production.kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "<PRODUCTION_NAMESPACE_ID>"
+[[env.production.kv_namespaces]]
+binding = "CF_CMS_KV"
+id = "dc4ed5798cf14609809fd2839d19d15c"
+
+
+
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cf_cms_d1"
+database_id = "ea324159-bfc9-4cf4-8c86-6697fe665832"
+preview_database_id = "DB"

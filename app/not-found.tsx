@@ -2,24 +2,30 @@ export const runtime = "edge";
 
 export default function NotFound() {
   return (
-    <>
-      <title>404: This page could not be found.</title>
-      <div style={styles.error}>
-        <div>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}`,
-            }}
+    <section>
+      {/* Container */}
+      <div className="px-5 py-16 md:px-10 md:py-20">
+        {/* Component */}
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPlaceholder%20Image.svg?alt=media&token=375a1ea3-a8b6-4d63-b975-aac8d0174074"
+            alt=""
+            className="mx-auto rounded-full mb-8 inline-block h-56 w-56 flex-none object-cover"
           />
-          <h1 className="next-error-h1" style={styles.h1}>
-            404
-          </h1>
-          <div style={styles.desc}>
-            <h2 style={styles.h2}>This page could not be found.</h2>
-          </div>
+          <h1 className="mb-4 text-4xl font-bold md:text-6xl">404 Error</h1>
+          <p className="mx-auto mb-5 max-w-lg text-sm text-gray-500 sm:text-base md:mb-6 lg:mb-8">
+            Commodo, consequat turpis placerat ultrices sapien, tortor
+            tincidunt. Sit quisque est metus auctor sed turpis lectus quis.
+          </p>
+          <a
+            href="/"
+            className="inline-block items-center rounded-md bg-black px-8 py-4 text-center font-semibold text-white"
+          >
+            Back Home
+          </a>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

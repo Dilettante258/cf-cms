@@ -10,17 +10,27 @@
     "pages:build": "pnpm next-on-pages",
     "preview": "pnpm pages:build && wrangler pages dev",
     "deploy": "pnpm pages:build && wrangler pages deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
+    "seed-db": "pnpm prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/adapter-d1": "^5.17.0",
+    "@prisma/client": "5.17.0",
+    "@uiw/react-md-editor": "v3.6.0",
+    "commands": "link:@uiw/react-md-editor/commands",
     "next": "14.1.0",
+    "next-remove-imports": "^1.0.12",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "1",
     "@cloudflare/workers-types": "^4.20240718.0",
-    "@types/node": "^20",
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.14.11",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
@@ -28,8 +38,10 @@
     "eslint-config-next": "14.1.0",
     "eslint-plugin-next-on-pages": "^1.12.1",
     "postcss": "^8",
+    "prisma": "^5.17.0",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3",
     "vercel": "^35.1.0",
     "wrangler": "^3.65.1"
   }
